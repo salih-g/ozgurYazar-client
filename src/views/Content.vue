@@ -2,7 +2,7 @@
 	<section>
 		<div class="loader" v-if="Object.keys(section).length === 0"></div>
 		<div v-else>
-			<h2 class="text-center mb-5">{{ section.title }}</h2>
+			<h2 class="text-center mb-5" id="title">{{ section.title }}</h2>
 			<div class="content">
 				<ContentCard
 					class="mb-5"
@@ -15,6 +15,7 @@
 					:total-rows="rows"
 					:per-page="1"
 					aria-controls="my-table"
+					@click.native="scrollToTop"
 				></b-pagination>
 			</div>
 		</div>
@@ -63,7 +64,9 @@ export default {
 
 			// console.log(lineBreaks);
 		},
-		//page 1 de 0 page 2 de 500 den başlıcak
+		scrollToTop() {
+			document.getElementById('title').scrollIntoView();
+		},
 	},
 };
 </script>
