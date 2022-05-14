@@ -1,20 +1,23 @@
 <template>
 	<section class="container">
-		<div class="row">
-			<div class="col-4">
-				<h3>{{ content.title }}</h3>
-				<p>{{ content.desc }}</p>
-			</div>
-			<div class="col-8">
-				<h3 class="text-center mb-3">Bolumler</h3>
-				<h5 class="text-center mb-3" v-if="!content.sections">
-					Henüz bölümler yayınlanmadı. Merak etme çok yakında gelicek :)
-				</h5>
-				<SectionCard
-					v-for="(section, key) in content.sections"
-					:key="key"
-					:sectionId="section._id"
-				/>
+		<div class="loader" v-if="Object.keys(content).length === 0"></div>
+		<div v-else>
+			<div class="row">
+				<div class="col-4">
+					<h3>{{ content.title }}</h3>
+					<p>{{ content.desc }}</p>
+				</div>
+				<div class="col-8">
+					<h3 class="text-center mb-3">Bolumler</h3>
+					<h5 class="text-center mb-3" v-if="!content.sections">
+						Henüz bölümler yayınlanmadı. Merak etme çok yakında gelicek :)
+					</h5>
+					<SectionCard
+						v-for="(section, key) in content.sections"
+						:key="key"
+						:sectionId="section._id"
+					/>
+				</div>
 			</div>
 		</div>
 	</section>

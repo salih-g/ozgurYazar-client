@@ -1,16 +1,19 @@
 <template>
 	<div>
-		<h1 class="text-center mb-5">Son eklenen içeriklerim</h1>
-		<div class="home">
-			<ItemCard
-				v-for="(content, key) in contents"
-				:key="key"
-				:title="content.title"
-				:desc="content.desc"
-				:date="content.createdAt"
-				:id="content._id"
-				class="items"
-			/>
+		<div class="loader" v-if="contents[0] == null"></div>
+		<div v-else>
+			<h1 class="text-center mb-5">Son eklenen içeriklerim</h1>
+			<div class="home">
+				<ItemCard
+					v-for="(content, key) in contents"
+					:key="key"
+					:title="content.title"
+					:desc="content.desc"
+					:date="content.createdAt"
+					:id="content._id"
+					class="items"
+				/>
+			</div>
 		</div>
 	</div>
 </template>

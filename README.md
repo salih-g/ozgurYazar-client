@@ -2,9 +2,9 @@
 
 ## Todos
 
-- [ ] Add paginate
+- [x] Add paginate
 - [x] Fix days
 - [ ] Implement mail
 - [ ] Check desing
-- [ ] Add loading anim
+- [x] Add loading anim
 - [ ] Fix empty sections

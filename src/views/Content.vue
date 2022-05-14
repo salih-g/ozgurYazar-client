@@ -1,19 +1,22 @@
 <template>
 	<section>
-		<h2 class="text-center mb-5">{{ section.title }}</h2>
-		<div class="content">
-			<ContentCard
-				class="mb-5"
-				:content="pages[currentPage - 1]"
-				:pageNumber="currentPage"
-			/>
-			<b-pagination
-				class="center"
-				v-model="currentPage"
-				:total-rows="rows"
-				:per-page="1"
-				aria-controls="my-table"
-			></b-pagination>
+		<div class="loader" v-if="Object.keys(section).length === 0"></div>
+		<div v-else>
+			<h2 class="text-center mb-5">{{ section.title }}</h2>
+			<div class="content">
+				<ContentCard
+					class="mb-5"
+					:content="pages[currentPage - 1]"
+					:pageNumber="currentPage"
+				/>
+				<b-pagination
+					class="center"
+					v-model="currentPage"
+					:total-rows="rows"
+					:per-page="1"
+					aria-controls="my-table"
+				></b-pagination>
+			</div>
 		</div>
 	</section>
 </template>
