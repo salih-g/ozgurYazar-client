@@ -70,6 +70,11 @@ export default {
 	width: 60%;
 	margin: 0 auto;
 }
+@media only screen and (max-width: 600px) {
+	.content {
+		width: 95%;
+	}
+}
 .center {
 	display: flex;
 	justify-content: center;
