@@ -9,7 +9,7 @@
 					<h5>{{ title }}</h5>
 					<small> {{ $luxon(date) }}</small>
 				</div>
-				<div class="desc" v-html="desc"></div>
+				<p class="desc">{{ desc }}</p>
 			</router-link>
 		</div>
 	</div>

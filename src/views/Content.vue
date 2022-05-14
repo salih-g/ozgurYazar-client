@@ -4,10 +4,12 @@
 		<div class="content">
 			<ContentCard
 				class="mb-5"
-				:date="section.createdAt"
-				:content="section.content"
+				v-for="(page, key) in pages"
+				:content="page"
+				:pageNumber="key + 1"
+				:key="key"
 			/>
-			<div class="pages">
+			<!-- <div class="pages">
 				<ul class="pagination pagination-lg pages">
 					<li class="page-item disabled">
 						<a class="page-link" href="#">&laquo;</a>
@@ -31,7 +33,7 @@
 						<a class="page-link" href="#">&raquo;</a>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 		</div>
 	</section>
 </template>
@@ -48,10 +50,29 @@ export default {
 	data() {
 		return {
 			section: {},
+
+			pages: [],
 		};
 	},
-	async created() {
+	async mounted() {
 		this.section = await api.fetchSectionById(this.$route.params.id);
+		this.splitPage();
+	},
+
+	methods: {
+		splitPage() {
+			const content = this.section.content;
+			const splitContent = content.split(' ');
+			let pageCount = 0;
+
+			for (let i = 0; i <= splitContent.length / 500; i++) {
+				this.pages[pageCount] = '';
+				for (let j = 0; j < 500; j++) {
+					this.pages[pageCount] += splitContent[j] + ' ';
+				}
+				pageCount++;
+			}
+		},
 	},
 };
 </script>

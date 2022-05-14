@@ -9,7 +9,7 @@
 					<h5>{{ section.title }}</h5>
 					<small>{{ $luxon(section.createdAt) }}</small>
 				</div>
-				<div class="desc" v-html="section.content"></div>
+				<picture class="desc">{{ section.conten }}</picture>
 			</router-link>
 		</div>
 	</div>

@@ -4,9 +4,9 @@
 			class="list-group-item list-group-item-action flex-column align-items-start active"
 		>
 			<div class="d-flex w-100 justify-content-between">
-				<small>{{ $luxon(date) }}</small>
+				<div>Sayfa {{ pageNumber }}</div>
 			</div>
-			<div class="desc m-3" v-html="content"></div>
+			<p class="desc m-3">{{ content }}</p>
 		</div>
 	</div>
 </template>
@@ -15,7 +15,7 @@
 export default {
 	name: 'ContentCard',
 	props: {
-		date: String,
+		pageNumber: Number,
 		content: String,
 	},
 };
@@ -30,5 +30,3 @@ export default {
 	color: white;
 }
 </style>
-salla ya div olunca çözüyor nromalde p icinde p ye style ataymiyoz div p ilursa
-ouyor ama simdi .desc inicdki p yi ggormuyor idk why bana şu yeter
