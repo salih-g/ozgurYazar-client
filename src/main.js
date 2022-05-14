@@ -11,7 +11,7 @@ Vue.config.productionTip = false;
 
 Vue.use(VueLuxon, {
 	input: {
-		zone: 'utc',
+		zone: 'Europe/Istanbul',
 		format: 'iso',
 	},
 	output: 'short',
