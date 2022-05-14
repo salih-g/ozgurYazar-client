@@ -56,7 +56,6 @@ export default {
 				}
 				pageCount++;
 			}
-			console.log(this.pages);
 		},
 		//page 1 de 0 page 2 de 500 den başlıcak
 	},
