@@ -9,9 +9,9 @@
 				yıldızlar karanlığa ve yalnızlığınıza yenik düşer ve gördüklerin
 				konusunda seni yanıltabilir. Tüm bu duygu durum değişimlerinin nedeni
 				kesinlikle benimle alakası yok saçmalama! Peki herhangi bir şeyle ilgisi
-				olabilir mi? Kediniz, çay bardağın, herkesten özenle gizlediğin
-				günlüğün, nükleer reaktörler, unutulan şarkılar, süt, uyduruk kitaplar,
-				dışarıda unutulmuş şemsiye, sülükler, Sokollu Mehmet Paşa… <br />
+				olabilir mi? Kedin, çay bardağın, herkesten özenle gizlediğin günlüğün,
+				nükleer reaktörler, unutulan şarkılar, süt, uyduruk kitaplar, dışarıda
+				unutulmuş şemsiye, sülükler, Sokollu Mehmet Paşa… <br />
 				Tabiki Hayır! Tüm bunlar alakasız, anlamsız, lüzumsuz şeyler önemli olan
 				şu an arkandaki şey… <br />
 				Arkanda hiçbir şey yok.
