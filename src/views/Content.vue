@@ -8,7 +8,7 @@
 				:pageNumber="currentPage"
 			/>
 			<b-pagination
-				class="pages"
+				class="center"
 				v-model="currentPage"
 				:total-rows="rows"
 				:per-page="1"
@@ -64,10 +64,10 @@ export default {
 
 <style scoped>
 .content {
-	width: 80%;
+	width: 60%;
 	margin: 0 auto;
 }
-.pages {
+.center {
 	display: flex;
 	justify-content: center;
 }

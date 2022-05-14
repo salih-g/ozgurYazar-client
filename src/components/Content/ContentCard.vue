@@ -6,7 +6,7 @@
 			<div class="d-flex w-100 justify-content-between">
 				<div>Sayfa {{ pageNumber }}</div>
 			</div>
-			<p class="desc m-3">{{ content }}</p>
+			<article class="desc m-3">{{ content }}</article>
 		</div>
 	</div>
 </template>
@@ -24,9 +24,13 @@ export default {
 <style scoped>
 .desc {
 	font-style: italic;
+	color: white;
 	font-weight: 400;
 	font-size: 18px;
+	line-height: 30px;
+	text-align: justify;
+	text-justify: inter-word;
+	white-space: pre-wrap;
 	font-family: 'Roboto Condensed', sans-serif;
-	color: white;
 }
 </style>
