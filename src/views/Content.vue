@@ -14,7 +14,6 @@
 				:per-page="1"
 				aria-controls="my-table"
 			></b-pagination>
-			{{ currentPage }}
 		</div>
 	</section>
 </template>
@@ -50,13 +49,16 @@ export default {
 
 			for (let i = 0; i <= splitContent.length / 500; i++) {
 				this.pages[pageCount] = '';
-				for (let j = 0; j < 500; j++) {
-					this.pages[pageCount] += splitContent[j] + ' ';
+				for (let j = i * 500; j < 500 + i * 500; j++) {
+					if (splitContent[j]) {
+						this.pages[pageCount] += splitContent[j] + ' ';
+					}
 				}
 				pageCount++;
 			}
 			console.log(this.pages);
 		},
+		//page 1 de 0 page 2 de 500 den başlıcak
 	},
 };
 </script>
