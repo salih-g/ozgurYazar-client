@@ -32,7 +32,7 @@ export default {
 			section: {},
 			currentPage: 1,
 			pages: [],
-			rows: 2,
+			rows: 1,
 		};
 	},
 	async mounted() {
@@ -44,6 +44,7 @@ export default {
 	methods: {
 		splitPage() {
 			const content = this.section.content;
+			const lineBreaks = content.split(/\r?\n/).filter((element) => element);
 			const splitContent = content.split(' ');
 			let pageCount = 0;
 
@@ -56,6 +57,8 @@ export default {
 				}
 				pageCount++;
 			}
+
+			// console.log(lineBreaks);
 		},
 		//page 1 de 0 page 2 de 500 den başlıcak
 	},
