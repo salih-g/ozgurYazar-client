@@ -7,9 +7,9 @@
 			>
 				<div class="d-flex w-100 justify-content-between">
 					<h5>{{ title }}</h5>
-					<small> {{ date }} days ago</small>
+					<small> {{ $luxon(date) }}</small>
 				</div>
-				<p class="desc" v-html="desc"></p>
+				<div class="desc" v-html="desc"></div>
 			</router-link>
 		</div>
 	</div>
@@ -33,8 +33,8 @@ export default {
 	font-weight: 400;
 	font-size: 18px;
 	font-family: 'Roboto Condensed', sans-serif;
-
 	overflow: hidden;
+	color: white;
 	display: -webkit-box;
 	-webkit-line-clamp: 10;
 	-webkit-box-orient: vertical;

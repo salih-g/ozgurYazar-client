@@ -52,7 +52,6 @@ export default {
 	},
 	async created() {
 		this.section = await api.fetchSectionById(this.$route.params.id);
-		console.log(this.section);
 	},
 };
 </script>

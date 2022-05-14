@@ -5,7 +5,6 @@ export default {
 		return await axios()
 			.get('/contents')
 			.then((r) => {
-				console.log(r.data);
 				return r.data;
 			});
 	},

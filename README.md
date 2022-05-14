@@ -3,6 +3,6 @@
 ## Todos
 
 - [ ] Add paginate
-- [ ] Fix days ago string
+- [x] Fix days
 - [ ] Implement mail
 - [ ] Check desing

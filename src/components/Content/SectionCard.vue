@@ -7,9 +7,9 @@
 			>
 				<div class="d-flex w-100 justify-content-between">
 					<h5>{{ section.title }}</h5>
-					<small>{{ section.createdAt }} days ago</small>
+					<small>{{ $luxon(section.createdAt) }}</small>
 				</div>
-				<p class="desc" v-html="section.content"></p>
+				<div class="desc" v-html="section.content"></div>
 			</router-link>
 		</div>
 	</div>
@@ -44,6 +44,7 @@ export default {
 	font-weight: 400;
 	font-size: 18px;
 	font-family: 'Roboto Condensed', sans-serif;
+	color: white;
 
 	overflow: hidden;
 	display: -webkit-box;
