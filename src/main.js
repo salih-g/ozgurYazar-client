@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueLuxon from 'vue-luxon';
+import { BootstrapVue } from 'bootstrap-vue';
 
 import App from './App.vue';
 import router from './router';
@@ -16,6 +17,7 @@ Vue.use(VueLuxon, {
 	},
 	output: 'short',
 });
+Vue.use(BootstrapVue);
 
 new Vue({
 	router,

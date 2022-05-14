@@ -7,3 +7,4 @@
 - [ ] Implement mail
 - [ ] Check desing
 - [ ] Add loading anim
+- [ ] Fix empty sections

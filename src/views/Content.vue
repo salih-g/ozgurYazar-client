@@ -4,36 +4,17 @@
 		<div class="content">
 			<ContentCard
 				class="mb-5"
-				v-for="(page, key) in pages"
-				:content="page"
-				:pageNumber="key + 1"
-				:key="key"
+				:content="pages[currentPage - 1]"
+				:pageNumber="currentPage"
 			/>
-			<!-- <div class="pages">
-				<ul class="pagination pagination-lg pages">
-					<li class="page-item disabled">
-						<a class="page-link" href="#">&laquo;</a>
-					</li>
-					<li class="page-item active">
-						<a class="page-link" href="#">1</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">2</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">3</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">4</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">5</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">&raquo;</a>
-					</li>
-				</ul>
-			</div> -->
+			<b-pagination
+				class="pages"
+				v-model="currentPage"
+				:total-rows="rows"
+				:per-page="1"
+				aria-controls="my-table"
+			></b-pagination>
+			{{ currentPage }}
 		</div>
 	</section>
 </template>
@@ -50,13 +31,15 @@ export default {
 	data() {
 		return {
 			section: {},
-
+			currentPage: 1,
 			pages: [],
+			rows: 2,
 		};
 	},
 	async mounted() {
 		this.section = await api.fetchSectionById(this.$route.params.id);
 		this.splitPage();
+		this.rows = this.pages.length;
 	},
 
 	methods: {
@@ -72,6 +55,7 @@ export default {
 				}
 				pageCount++;
 			}
+			console.log(this.pages);
 		},
 	},
 };
