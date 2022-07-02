@@ -9,6 +9,13 @@
 					:content="pages[currentPage - 1]"
 					:pageNumber="currentPage"
 				/>
+				<a
+					v-if="currentPage == pages.length && section.nextSectionId"
+					:href="`/section/${section.nextSectionId}`"
+					class="nextSection center"
+				>
+					Diğer bölüme geç..
+				</a>
 				<b-pagination
 					class="center"
 					v-model="currentPage"
@@ -23,66 +30,69 @@
 </template>
 
 <script>
-import api from '../api';
-import ContentCard from '@/components/Content/ContentCard.vue';
+	import api from '../api';
+	import ContentCard from '@/components/Content/ContentCard.vue';
 
-export default {
-	name: 'Home',
-	components: {
-		ContentCard,
-	},
-	data() {
-		return {
-			section: {},
-			currentPage: 1,
-			pages: [],
-			rows: 1,
-		};
-	},
-	async mounted() {
-		this.section = await api.fetchSectionById(this.$route.params.id);
-		this.splitPage();
-		this.rows = this.pages.length;
-	},
+	export default {
+		name: 'Home',
+		components: {
+			ContentCard,
+		},
+		data() {
+			return {
+				section: {},
+				currentPage: 1,
+				pages: [],
+				rows: 1,
+			};
+		},
+		async mounted() {
+			this.section = await api.fetchSectionById(this.$route.params.id);
+			this.splitPage();
+			this.rows = this.pages.length;
+		},
 
-	methods: {
-		splitPage() {
-			const content = this.section.content;
-			const lineBreaks = content.split(/\r?\n/).filter((element) => element);
-			const splitContent = content.split(' ');
-			let pageCount = 0;
+		methods: {
+			splitPage() {
+				const content = this.section.content;
+				const lineBreaks = content.split(/\r?\n/).filter((element) => element);
+				const splitContent = content.split(' ');
+				let pageCount = 0;
 
-			for (let i = 0; i <= splitContent.length / 500; i++) {
-				this.pages[pageCount] = '';
-				for (let j = i * 500; j < 500 + i * 500; j++) {
-					if (splitContent[j]) {
-						this.pages[pageCount] += splitContent[j] + ' ';
+				for (let i = 0; i <= splitContent.length / 500; i++) {
+					this.pages[pageCount] = '';
+					for (let j = i * 500; j < 500 + i * 500; j++) {
+						if (splitContent[j]) {
+							this.pages[pageCount] += splitContent[j] + ' ';
+						}
 					}
+					pageCount++;
 				}
-				pageCount++;
-			}
 
-			// console.log(lineBreaks);
+				// console.log(lineBreaks);
+			},
+			scrollToTop() {
+				document.getElementById('title').scrollIntoView();
+			},
 		},
-		scrollToTop() {
-			document.getElementById('title').scrollIntoView();
-		},
-	},
-};
+	};
 </script>
 
 <style scoped>
-.content {
-	width: 60%;
-	margin: 0 auto;
-}
-@media only screen and (max-width: 600px) {
 	.content {
-		width: 95%;
+		width: 60%;
+		margin: 0 auto;
 	}
-}
-.center {
-	display: flex;
-	justify-content: center;
-}
+	@media only screen and (max-width: 600px) {
+		.content {
+			width: 95%;
+		}
+	}
+	.center {
+		display: flex;
+		justify-content: center;
+	}
+	.nextSection {
+		margin-bottom: 10px;
+	}
 </style>

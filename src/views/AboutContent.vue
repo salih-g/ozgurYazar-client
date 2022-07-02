@@ -24,32 +24,32 @@
 </template>
 
 <script>
-import api from '../api';
+	import api from '../api';
 
-import SectionCard from '@/components/Content/SectionCard.vue';
+	import SectionCard from '@/components/Content/SectionCard.vue';
 
-export default {
-	name: 'Home',
-	components: {
-		SectionCard,
-	},
-	data() {
-		return {
-			content: {},
-		};
-	},
-	async created() {
-		this.content = await api.fetchContentById(this.$route.params.id);
-	},
-};
+	export default {
+		name: 'Home',
+		components: {
+			SectionCard,
+		},
+		data() {
+			return {
+				content: {},
+			};
+		},
+		async created() {
+			this.content = await api.fetchContentById(this.$route.params.id);
+		},
+	};
 </script>
 
 <style scoped>
-.content {
-	margin: 0 auto;
-}
-.pages {
-	display: flex;
-	justify-content: center;
-}
+	.content {
+		margin: 0 auto;
+	}
+	.pages {
+		display: flex;
+		justify-content: center;
+	}
 </style>

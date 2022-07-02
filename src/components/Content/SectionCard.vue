@@ -9,46 +9,46 @@
 					<h5>{{ section.title }}</h5>
 					<small>{{ $luxon(section.createdAt) }}</small>
 				</div>
-				<picture class="desc">{{ section.conten }}</picture>
+				<picture class="desc">{{ section.content }}</picture>
 			</router-link>
 		</div>
 	</div>
 </template>
 
 <script>
-import api from '../../api';
+	import api from '../../api';
 
-export default {
-	name: 'SectionCard',
-	props: {
-		sectionId: String,
-	},
-	data() {
-		return {
-			section: {},
-		};
-	},
-	async created() {
-		this.section = await api.fetchSectionById(this.sectionId);
-	},
-};
+	export default {
+		name: 'SectionCard',
+		props: {
+			sectionId: String,
+		},
+		data() {
+			return {
+				section: {},
+			};
+		},
+		async created() {
+			this.section = await api.fetchSectionById(this.sectionId);
+		},
+	};
 </script>
 
 <style scoped>
-.sectionCard {
-	width: 70%;
-	margin: 0 auto;
-}
-.desc {
-	font-style: italic;
-	font-weight: 400;
-	font-size: 18px;
-	font-family: 'Roboto Condensed', sans-serif;
-	color: white;
+	.sectionCard {
+		width: 70%;
+		margin: 0 auto;
+	}
+	.desc {
+		font-style: italic;
+		font-weight: 400;
+		font-size: 18px;
+		font-family: 'Roboto Condensed', sans-serif;
+		color: white;
 
-	overflow: hidden;
-	display: -webkit-box;
-	-webkit-line-clamp: 5;
-	-webkit-box-orient: vertical;
-}
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 5;
+		-webkit-box-orient: vertical;
+	}
 </style>

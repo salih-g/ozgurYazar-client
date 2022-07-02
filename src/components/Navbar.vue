@@ -1,7 +1,7 @@
 <template>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
 		<div class="container-fluid">
-			<div class="navbar-brand">Özgür Yazar</div>
+			<a class="navbar-brand" href="/">Özgür Yazar</a>
 			<button
 				class="navbar-toggler"
 				type="button"
@@ -32,10 +32,10 @@
 </template>
 
 <script>
-export default {
-	name: 'Navbar',
-	props: {},
-};
+	export default {
+		name: 'Navbar',
+		props: {},
+	};
 </script>
 
 <style scoped></style>
